@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "zig-debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/zig-out/bin/debug",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "zig-debug-build",
+            "stopOnEntry": false,
+            "env": {},
+            "initCommands": [
+                "command script import ${workspaceFolder}/.vscode/lldb_pretty_printers.py",
+                "type category enable zig.lang",
+                "type category enable zig.std",
+                "type category enable zig.stage2"
+            ]
+        },
+        {
+            "name": "zig-debug-test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/zig-out/bin/test",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "zig-debug-test-build",
+            "stopOnEntry": false,
+            "env": {},
+            "initCommands": [
+                "command script import ${workspaceFolder}/.vscode/lldb_pretty_printers.py",
+                "type category enable zig.lang",
+                "type category enable zig.std",
+                "type category enable zig.stage2"
+            ]
+        },
+    ]
+}
